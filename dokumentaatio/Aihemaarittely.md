@@ -3,8 +3,8 @@
 **Käyttäjät**: Henkilö
 
 **Käyttäjän toiminnot**: 
-*Lisää eventti
-*Poista eventti
-*Tallenna lukujärjestys
-*Avaa lukujärjestys
-*Tulosta lukujärjestys
+* Lisää eventti
+* Poista eventti
+* Tallenna lukujärjestys
+* Avaa lukujärjestys
+* Tulosta lukujärjestys
