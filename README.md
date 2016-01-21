@@ -1,2 +1,1 @@
 # Planner
-toinen kone toimii
