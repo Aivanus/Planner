@@ -1,0 +1,1 @@
+![Luokkakaavio](Planner/dokumentaatio/luokkakaavio1.png)

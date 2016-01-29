@@ -7,4 +7,4 @@ Ohjelman ideana on antaa graafinen käyttöliittymä yksinkertaisen lukujärjestykse
 
 ## Dokumentaatio
 
-`<addr>`[aiheen kuvaus](dokumentaatio/aiheenKuvausJaMaaritelma.md)
+``[aiheen kuvaus](dokumentaatio/aiheenKuvausJaMaaritelma.md)
