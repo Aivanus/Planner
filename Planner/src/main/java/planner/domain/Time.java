@@ -2,20 +2,34 @@ package planner.domain;
 
 public class Time {
 
-    private int start;
-    private int end;
+    private int hours;
+    private int minutes;
 
-    public Time(int start, int end) {
-        this.start = start;
-        this.end = end;
+    public Time(int hours, int minutes) {
+        this.hours = hours;
+        this.minutes = minutes;
     }
 
-    public int getStart() {
-        return start;
+    public Time(int hours) {
+        this(hours, 0);
+    }
+    
+    public int getHours() {
+        return hours;
     }
 
-    public int getEnd() {
-        return end;
+    public int getMinutes() {
+        return minutes;
+    }
+    
+    public int getTimeInMinutes(){
+        return hours*60 + minutes;
     }
 
+    @Override
+    public String toString() {
+        return hours + ":" + minutes;
+    }
+    
+    
 }
