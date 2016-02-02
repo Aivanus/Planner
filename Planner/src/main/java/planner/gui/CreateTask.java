@@ -43,16 +43,17 @@ public class CreateTask {
 //        Task task = new Task(name, start, end, day);
 //        System.out.println(task);
 //    }
-    public void createTask() {
+    public Task createTask() {
 
         String name = nameArea.getText();
-        String day = (String) dayBox.getSelectedItem();
+        Day day = (Day) dayBox.getSelectedItem();
 
         Time start = new Time(Integer.parseInt(timeStartArea.getText()));
         Time end = new Time(Integer.parseInt(timeEndArea.getText()));
 
         Task task = new Task(name, start, end, day);
         System.out.println(task);
+        return task;
     }
 
 }

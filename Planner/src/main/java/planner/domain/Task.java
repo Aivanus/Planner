@@ -5,9 +5,9 @@ public class Task {
     private String name;
     private Time start;
     private Time end;
-    private String day;
+    private Day day;
 
-    public Task(String name, Time start, Time end, String day) {
+    public Task(String name, Time start, Time end, Day day) {
         this.name = name;
         this.start = start;
         this.end = end;
@@ -26,17 +26,13 @@ public class Task {
         return end.getHours();
     }
 
-    public String getDay() {
-        return day;
+    public int getDay() {
+        return day.getOrdNumber();
     }
-    
-    
 
     @Override
     public String toString() {
         return name + ", " + day + ", " + start + "-" + end;
     }
-    
-    
 
 }

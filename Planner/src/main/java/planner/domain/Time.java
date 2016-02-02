@@ -13,7 +13,7 @@ public class Time {
     public Time(int hours) {
         this(hours, 0);
     }
-    
+
     public int getHours() {
         return hours;
     }
@@ -21,15 +21,14 @@ public class Time {
     public int getMinutes() {
         return minutes;
     }
-    
-    public int getTimeInMinutes(){
-        return hours*60 + minutes;
+
+    public int getTimeInMinutes() {
+        return hours * 60 + minutes;
     }
 
     @Override
     public String toString() {
         return hours + ":" + minutes;
     }
-    
-    
+
 }
