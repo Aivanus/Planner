@@ -5,6 +5,8 @@
  */
 package planner.gui;
 
+import planner.domain.Day;
+
 
 public class PlannerGUI extends javax.swing.JFrame {
 
@@ -39,11 +41,17 @@ public class PlannerGUI extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Planner");
 
         NameLabel.setLabelFor(NameTextField);
         NameLabel.setText("Name");
 
-        NameTextField.setText("jTextField1");
+        NameTextField.setText("New Task");
+        NameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NameTextFieldActionPerformed(evt);
+            }
+        });
 
         DayLabel.setLabelFor(DayComboBox);
         DayLabel.setText("Day");
@@ -52,18 +60,19 @@ public class PlannerGUI extends javax.swing.JFrame {
         TimeLabel.setText("Time");
 
         DayComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        DayComboBox.setToolTipText("");
         DayComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DayComboBoxActionPerformed(evt);
             }
         });
 
-        TimeStartTextField.setText("jTextField2");
+        TimeStartTextField.setText("00");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("-");
 
-        TimeEndTextField.setText("jTextField2");
+        TimeEndTextField.setText("00");
 
         CreateButton.setText("OK");
         CreateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +180,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         });
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTable1.setEnabled(false);
+        jTable1.setRowSelectionAllowed(false);
         jTable1.setShowHorizontalLines(false);
         jScrollPane1.setViewportView(jTable1);
 
@@ -219,6 +229,10 @@ public class PlannerGUI extends javax.swing.JFrame {
         CreateTask ct = new CreateTask(NameTextField, TimeStartTextField, TimeEndTextField, DayComboBox);
         ct.createTask();
     }//GEN-LAST:event_CreateButtonActionPerformed
+
+    private void NameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NameTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

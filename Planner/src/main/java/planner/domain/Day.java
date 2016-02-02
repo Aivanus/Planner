@@ -13,4 +13,7 @@ public enum Day {
     public int getOrdNumber() {
         return ordNumber;
     }
+
+    
+    
 }
