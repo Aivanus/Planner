@@ -25,8 +25,19 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel2" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -41,6 +52,10 @@
                   <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -60,26 +75,26 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="NameLabel" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="DayLabel" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="TimeLabel" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="nameLabel" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="dayLabel" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="timeLabel" linkSize="4" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="NameTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="nameTextField" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="TimeStartTextField" linkSize="6" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="timeStartTextField" linkSize="6" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel4" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="TimeEndTextField" linkSize="6" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="DayComboBox" alignment="0" pref="93" max="32767" attributes="0"/>
+                              <Component id="dayComboBox" alignment="0" pref="93" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="CreateButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="createButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -91,62 +106,59 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NameLabel" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="NameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameLabel" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="DayLabel" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DayComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dayLabel" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dayComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="TimeLabel" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TimeStartTextField" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="timeLabel" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="timeStartTextField" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TimeEndTextField" linkSize="7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="CreateButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="createButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="84" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="NameLabel">
+        <Component class="javax.swing.JLabel" name="nameLabel">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="NameTextField"/>
+              <ComponentRef name="nameTextField"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="NameTextField">
+        <Component class="javax.swing.JTextField" name="nameTextField">
           <Properties>
             <Property name="text" type="java.lang.String" value="New Task"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NameTextFieldActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="DayLabel">
+        <Component class="javax.swing.JLabel" name="dayLabel">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="DayComboBox"/>
+              <ComponentRef name="dayComboBox"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Day"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="TimeLabel">
+        <Component class="javax.swing.JLabel" name="timeLabel">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="TimeStartTextField"/>
+              <ComponentRef name="timeStartTextField"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Time"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="DayComboBox">
+        <Component class="javax.swing.JComboBox" name="dayComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="7">
@@ -161,11 +173,8 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DayComboBoxActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="TimeStartTextField">
+        <Component class="javax.swing.JTextField" name="timeStartTextField">
           <Properties>
             <Property name="text" type="java.lang.String" value="00"/>
           </Properties>
@@ -181,12 +190,12 @@
             <Property name="text" type="java.lang.String" value="00"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="CreateButton">
+        <Component class="javax.swing.JButton" name="createButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="OK"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -213,20 +222,20 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="schedule">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="8" rowCount="24">
                     <Column editable="false" title="Time" type="java.lang.Object">
-                      <Data value="0"/>
-                      <Data value="1"/>
-                      <Data value="2"/>
-                      <Data value="3"/>
-                      <Data value="4"/>
-                      <Data value="5"/>
-                      <Data value="6"/>
-                      <Data value="7"/>
-                      <Data value="8"/>
+                      <Data value="00"/>
+                      <Data value="01"/>
+                      <Data value="02"/>
+                      <Data value="03"/>
+                      <Data value="04"/>
+                      <Data value="05"/>
+                      <Data value="06"/>
+                      <Data value="07"/>
+                      <Data value="08"/>
                       <Data value="9"/>
                       <Data value="10"/>
                       <Data value="11"/>
@@ -253,14 +262,77 @@
                   </Table>
                 </Property>
                 <Property name="autoResizeMode" type="int" value="4"/>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="15" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
+                </Property>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="rowSelectionAllowed" type="boolean" value="false"/>
                 <Property name="showHorizontalLines" type="boolean" value="false"/>
+                <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                  <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton2"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

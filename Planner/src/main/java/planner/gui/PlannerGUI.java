@@ -5,16 +5,19 @@
  */
 package planner.gui;
 
-import planner.domain.Day;
+import java.util.ArrayList;
+import java.util.List;
+import planner.domain.Task;
 
 
 public class PlannerGUI extends javax.swing.JFrame {
-
+    private List<Task> tasks;
     /**
      * Creates new form PlannerGUI
      */
     public PlannerGUI() {
         initComponents();
+        this.tasks = new ArrayList<>();
     }
 
     /**
@@ -27,57 +30,49 @@ public class PlannerGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        NameLabel = new javax.swing.JLabel();
-        NameTextField = new javax.swing.JTextField();
-        DayLabel = new javax.swing.JLabel();
-        TimeLabel = new javax.swing.JLabel();
-        DayComboBox = new javax.swing.JComboBox();
-        TimeStartTextField = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JLabel();
+        nameTextField = new javax.swing.JTextField();
+        dayLabel = new javax.swing.JLabel();
+        timeLabel = new javax.swing.JLabel();
+        dayComboBox = new javax.swing.JComboBox();
+        timeStartTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         TimeEndTextField = new javax.swing.JTextField();
-        CreateButton = new javax.swing.JButton();
+        createButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        schedule = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Planner");
 
-        NameLabel.setLabelFor(NameTextField);
-        NameLabel.setText("Name");
+        nameLabel.setLabelFor(nameTextField);
+        nameLabel.setText("Name");
 
-        NameTextField.setText("New Task");
-        NameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NameTextFieldActionPerformed(evt);
-            }
-        });
+        nameTextField.setText("New Task");
 
-        DayLabel.setLabelFor(DayComboBox);
-        DayLabel.setText("Day");
+        dayLabel.setLabelFor(dayComboBox);
+        dayLabel.setText("Day");
 
-        TimeLabel.setLabelFor(TimeStartTextField);
-        TimeLabel.setText("Time");
+        timeLabel.setLabelFor(timeStartTextField);
+        timeLabel.setText("Time");
 
-        DayComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
-        DayComboBox.setToolTipText("");
-        DayComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DayComboBoxActionPerformed(evt);
-            }
-        });
+        dayComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        dayComboBox.setToolTipText("");
 
-        TimeStartTextField.setText("00");
+        timeStartTextField.setText("00");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("-");
 
         TimeEndTextField.setText("00");
 
-        CreateButton.setText("OK");
-        CreateButton.addActionListener(new java.awt.event.ActionListener() {
+        createButton.setText("OK");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreateButtonActionPerformed(evt);
+                createButtonActionPerformed(evt);
             }
         });
 
@@ -90,66 +85,66 @@ public class PlannerGUI extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(DayLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TimeLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(nameLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dayLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(timeLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NameTextField)
+                            .addComponent(nameTextField)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(TimeStartTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(timeStartTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TimeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(DayComboBox, 0, 93, Short.MAX_VALUE)))
+                            .addComponent(dayComboBox, 0, 93, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(CreateButton)))
+                        .addComponent(createButton)))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {DayLabel, NameLabel, TimeLabel});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {TimeEndTextField, TimeStartTextField});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {TimeEndTextField, timeStartTextField});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NameLabel)
-                    .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameLabel)
+                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DayLabel)
-                    .addComponent(DayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dayLabel)
+                    .addComponent(dayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TimeLabel)
-                    .addComponent(TimeStartTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timeLabel)
+                    .addComponent(timeStartTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(TimeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addComponent(CreateButton)
+                .addComponent(createButton)
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {DayLabel, NameLabel, TimeLabel});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {TimeEndTextField, TimeStartTextField});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {TimeEndTextField, timeStartTextField});
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        schedule.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"0", null, null, null, null, null, null, null},
-                {"1", null, null, null, null, null, null, null},
-                {"2", null, null, null, null, null, null, null},
-                {"3", null, null, null, null, null, null, null},
-                {"4", null, null, null, null, null, null, null},
-                {"5", null, null, null, null, null, null, null},
-                {"6", null, null, null, null, null, null, null},
-                {"7", null, null, null, null, null, null, null},
-                {"8", null, null, null, null, null, null, null},
+                {"00", null, null, null, null, null, null, null},
+                {"01", null, null, null, null, null, null, null},
+                {"02", null, null, null, null, null, null, null},
+                {"03", null, null, null, null, null, null, null},
+                {"04", null, null, null, null, null, null, null},
+                {"05", null, null, null, null, null, null, null},
+                {"06", null, null, null, null, null, null, null},
+                {"07", null, null, null, null, null, null, null},
+                {"08", null, null, null, null, null, null, null},
                 {"9", null, null, null, null, null, null, null},
                 {"10", null, null, null, null, null, null, null},
                 {"11", null, null, null, null, null, null, null},
@@ -178,11 +173,23 @@ public class PlannerGUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        jTable1.setEnabled(false);
-        jTable1.setRowSelectionAllowed(false);
-        jTable1.setShowHorizontalLines(false);
-        jScrollPane1.setViewportView(jTable1);
+        schedule.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        schedule.setEnabled(false);
+        schedule.setRowSelectionAllowed(false);
+        schedule.setShowHorizontalLines(false);
+        schedule.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(schedule);
+        if (schedule.getColumnModel().getColumnCount() > 0) {
+            schedule.getColumnModel().getColumn(0).setResizable(false);
+            schedule.getColumnModel().getColumn(0).setPreferredWidth(15);
+            schedule.getColumnModel().getColumn(1).setResizable(false);
+            schedule.getColumnModel().getColumn(2).setResizable(false);
+            schedule.getColumnModel().getColumn(3).setResizable(false);
+            schedule.getColumnModel().getColumn(4).setResizable(false);
+            schedule.getColumnModel().getColumn(5).setResizable(false);
+            schedule.getColumnModel().getColumn(6).setResizable(false);
+            schedule.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -195,13 +202,34 @@ public class PlannerGUI extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
         );
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1))))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -214,6 +242,10 @@ public class PlannerGUI extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102)
+                        .addComponent(jButton1)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -221,19 +253,25 @@ public class PlannerGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DayComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DayComboBoxActionPerformed
-
-    private void CreateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateButtonActionPerformed
-        CreateTask ct = new CreateTask(NameTextField, TimeStartTextField, TimeEndTextField, DayComboBox);
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
+        CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox);
         ct.createTask();
-    }//GEN-LAST:event_CreateButtonActionPerformed
+    }//GEN-LAST:event_createButtonActionPerformed
 
-    private void NameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NameTextFieldActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        schedule.setValueAt("testi",1,2);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        schedule.setValueAt("toinen",2,3);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void updateCell(Task task){
+        String name = task.getName();
+        
+        int time = task.getStartTime();
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -270,18 +308,20 @@ public class PlannerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CreateButton;
-    private javax.swing.JComboBox DayComboBox;
-    private javax.swing.JLabel DayLabel;
-    private javax.swing.JLabel NameLabel;
-    private javax.swing.JTextField NameTextField;
     private javax.swing.JTextField TimeEndTextField;
-    private javax.swing.JLabel TimeLabel;
-    private javax.swing.JTextField TimeStartTextField;
+    private javax.swing.JButton createButton;
+    private javax.swing.JComboBox dayComboBox;
+    private javax.swing.JLabel dayLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField nameTextField;
+    private javax.swing.JTable schedule;
+    private javax.swing.JLabel timeLabel;
+    private javax.swing.JTextField timeStartTextField;
     // End of variables declaration//GEN-END:variables
 }

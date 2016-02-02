@@ -14,9 +14,23 @@ public class Task {
         this.day = day;
     }
 
-    public String getNimi() {
+    public String getName() {
         return name;
     }
+
+    public int getStartTime() {
+        return start.getHours();
+    }
+
+    public int getEndTime() {
+        return end.getHours();
+    }
+
+    public String getDay() {
+        return day;
+    }
+    
+    
 
     @Override
     public String toString() {

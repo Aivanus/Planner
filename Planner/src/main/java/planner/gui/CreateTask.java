@@ -33,26 +33,26 @@ public class CreateTask {
 //        Task task = new Task(name, start, end, day);
 //        System.out.println(task);
 //    }
-    public void createTask() {
-
-        String name = nameArea.getText();
-        String day = (String)dayBox.getSelectedItem();
-        Time start = new Time(00);
-        Time end = new Time(12);
-        
-        Task task = new Task(name, start, end, day);
-        System.out.println(task);
-    }
 //    public void createTask() {
 //
 //        String name = nameArea.getText();
-//        String day = "Monday";
-//
-//        Time start = new Time(Integer.parseInt(timeStartArea.getText()));
-//        Time end = new Time(Integer.parseInt(timeEndArea.getText()));
-//
+//        String day = (String)dayBox.getSelectedItem();
+//        Time start = new Time(00);
+//        Time end = new Time(12);
+//        
 //        Task task = new Task(name, start, end, day);
 //        System.out.println(task);
 //    }
+    public void createTask() {
+
+        String name = nameArea.getText();
+        String day = (String) dayBox.getSelectedItem();
+
+        Time start = new Time(Integer.parseInt(timeStartArea.getText()));
+        Time end = new Time(Integer.parseInt(timeEndArea.getText()));
+
+        Task task = new Task(name, start, end, day);
+        System.out.println(task);
+    }
 
 }

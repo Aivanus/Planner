@@ -32,36 +32,36 @@ public class DayTest {
     @Test
     public void correctNumMonday(){
         Day day = MONDAY;
-        assertEquals(1, day.getOrdNumber());
+        assertEquals(2, day.getOrdNumber());
     }
     @Test
     public void correctNumTuesday(){
         Day day = TUESDAY;
-        assertEquals(2, day.getOrdNumber());
+        assertEquals(3, day.getOrdNumber());
     }
     @Test
     public void correctNumWednesday(){
         Day day = WEDNESDAY;
-        assertEquals(3, day.getOrdNumber());
+        assertEquals(4, day.getOrdNumber());
     }
     @Test
     public void correctNumThursday(){
         Day day = THURSDAY;
-        assertEquals(4, day.getOrdNumber());
+        assertEquals(5, day.getOrdNumber());
     }
     @Test
     public void correctNumFriday(){
         Day day = FRIDAY;
-        assertEquals(5, day.getOrdNumber());
+        assertEquals(6, day.getOrdNumber());
     }
     @Test
     public void correctNumSaturday(){
         Day day = SATURDAY;
-        assertEquals(6, day.getOrdNumber());
+        assertEquals(7, day.getOrdNumber());
     }
     @Test
     public void correctNumSunday(){
         Day day = SUNDAY;
-        assertEquals(7, day.getOrdNumber());
+        assertEquals(8, day.getOrdNumber());
     }
 }
