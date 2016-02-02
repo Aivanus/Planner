@@ -240,8 +240,13 @@ public class PlannerGUI extends javax.swing.JFrame {
         String name = task.getName();
         int time = task.getStartTime();
         int day = task.getDay();
-
-        schedule.setValueAt(name, time, day);
+        
+        for (int i = 0; i <= task.getDuration(); i++) {
+            schedule.setValueAt(name, time + i, day);
+            
+        }
+        
+        //schedule.setValueAt(name, time, day);
 
     }
 

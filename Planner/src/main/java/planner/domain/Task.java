@@ -30,6 +30,10 @@ public class Task {
         return day.getOrdNumber();
     }
 
+    public int getDuration() {
+        return end.getHours() - start.getHours();
+    }
+
     @Override
     public String toString() {
         return name + ", " + day + ", " + start + "-" + end;

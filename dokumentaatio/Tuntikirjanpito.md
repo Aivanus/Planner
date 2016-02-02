@@ -9,5 +9,7 @@
 
 29.01.2016
 * (5h) Ohjelmointi
-
 * (1h) Suunnittelu
+
+02.02.2016
+* (5h) Ohjelmointi
