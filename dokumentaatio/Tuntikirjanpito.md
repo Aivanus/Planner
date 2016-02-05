@@ -13,3 +13,7 @@
 
 02.02.2016
 * (5h) Ohjelmointi
+
+05.02.2016
+* (1,5h) Suunnittelu
+* (2,5h) Ohjelmointi

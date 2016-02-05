@@ -41,9 +41,11 @@
                 <configuration>
                     <targetClasses>
                         <param>planner.domain.*</param>
+                        <param>planner.gui.CreateTask</param>
                     </targetClasses>
                     <targetTests>
                         <param>planner.domain.*</param>
+                        <param>planner.gui.CreateTaskTest</param>
                     </targetTests>
                 </configuration>
             </plugin>

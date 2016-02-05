@@ -255,10 +255,10 @@ public class PlannerGUI extends javax.swing.JFrame {
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox);
         Task task = ct.createTask();
-        
+
         if (task != null) {
             updateCell(task);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(new JFrame(),
                     "Check your inputs!", "Invalid input",
                     JOptionPane.ERROR_MESSAGE);
