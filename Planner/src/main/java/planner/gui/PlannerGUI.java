@@ -7,6 +7,10 @@ package planner.gui;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.Renderer;
+import javax.swing.table.TableCellEditor;
 import planner.domain.Day;
 import planner.domain.Task;
 
@@ -41,6 +45,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TimeEndTextField = new javax.swing.JTextField();
         createButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         schedule = new javax.swing.JTable();
@@ -76,6 +81,13 @@ public class PlannerGUI extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("For testing purposes only");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -100,7 +112,8 @@ public class PlannerGUI extends javax.swing.JFrame {
                                 .addComponent(TimeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(createButton)))
+                        .addComponent(createButton))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -127,7 +140,9 @@ public class PlannerGUI extends javax.swing.JFrame {
                     .addComponent(TimeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(createButton)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
@@ -167,9 +182,16 @@ public class PlannerGUI extends javax.swing.JFrame {
                 "Time", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -233,21 +255,32 @@ public class PlannerGUI extends javax.swing.JFrame {
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox);
         Task task = ct.createTask();
-        updateCell(task);
+        
+        if (task != null) {
+            updateCell(task);
+        }else{
+            JOptionPane.showMessageDialog(new JFrame(),
+                    "Check your inputs!", "Invalid input",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_createButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        schedule.setDefaultRenderer(String.class, new ColorRenderer());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void updateCell(Task task) {
         String name = task.getName();
         int time = task.getStartTime();
         int day = task.getDay();
-        
+//      schedule.getColumnModel().getColumn(day).setCellRenderer(new ColorRenderer());
+
         for (int i = 0; i <= task.getDuration(); i++) {
             schedule.setValueAt(name, time + i, day);
-            
-        }
-        
-        //schedule.setValueAt(name, time, day);
 
+        }
+
+        //schedule.setValueAt(name, time, day);
     }
 
     /**
@@ -290,6 +323,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     private javax.swing.JButton createButton;
     private javax.swing.JComboBox dayComboBox;
     private javax.swing.JLabel dayLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

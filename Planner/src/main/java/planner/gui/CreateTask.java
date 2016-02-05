@@ -1,6 +1,8 @@
 package planner.gui;
 
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import planner.domain.Day;
 import planner.domain.Task;
@@ -22,37 +24,37 @@ public class CreateTask {
         // this.createButton = createButton;
     }
 
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//
-//        String name = nameArea.getText();
-//        String day = "Monday";
-//        Time start = new Time(Integer.parseInt(timeStartArea.getText()));
-//        Time end = new Time(Integer.parseInt(timeEndArea.getText()));
-//        
-//        Task task = new Task(name, start, end, day);
-//        System.out.println(task);
-//    }
-//    public void createTask() {
-//
-//        String name = nameArea.getText();
-//        String day = (String)dayBox.getSelectedItem();
-//        Time start = new Time(00);
-//        Time end = new Time(12);
-//        
-//        Task task = new Task(name, start, end, day);
-//        System.out.println(task);
-//    }
     public Task createTask() {
 
         String name = nameArea.getText();
+
+        if (name.isEmpty()) {
+//            JOptionPane.showMessageDialog(new JFrame(),
+//                    "Give a name to the task", "Invalid input",
+//                    JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
         Day day = (Day) dayBox.getSelectedItem();
 
+        if (timeStartArea.getText().isEmpty() || timeEndArea.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(new JFrame(),
+//                    "Time cannot be empty", "Invalid input",
+//                    JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
         Time start = new Time(Integer.parseInt(timeStartArea.getText()));
         Time end = new Time(Integer.parseInt(timeEndArea.getText()));
 
+        if (start.getHours() > 23 || start.getHours() < 0
+                || end.getHours() > 23 || end.getHours() < 0  || end.getHours() < start.getHours()) {
+//            JOptionPane.showMessageDialog(new JFrame(),
+//                    "Invalid time", "Invalid input",
+//                    JOptionPane.ERROR_MESSAGE);
+            return null;
+        }
         Task task = new Task(name, start, end, day);
         System.out.println(task);
+
         return task;
     }
 
