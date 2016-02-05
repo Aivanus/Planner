@@ -9,4 +9,4 @@ Ohjelman ideana on antaa graafinen käyttöliittymä yksinkertaisen lukujärjest
 
   [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaMaaritelma.md)
   
-  [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
+  [Tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
