@@ -1,10 +1,12 @@
 # Planner
 
 
-Ohjelman ideana on antaa graafinen käyttöliittymä yksinkertaisen lukujärjestyksen luomiseen. 
+Ohjelman ideana on antaa graafinen kÃ¤yttÃ¶liittymÃ¤ yksinkertaisen lukujÃ¤rjestyksen luomiseen. 
 
 
 
 ## Dokumentaatio
 
-`<addr>` [aiheen kuvaus](dokumentaatio/aiheenKuvausJaMaaritelma.md)
+  [Aiheen kuvaus](dokumentaatio/aiheenKuvausJaMaaritelma.md)
+  
+  [Tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
