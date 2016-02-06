@@ -1,10 +1,12 @@
-**Aihe**: Ohjelma, jolla voi tehd‰ lukuj‰rjestyksi‰/suunnitella s‰‰nnˆllisi‰ askareita. Ohjelmassa tapahtumia lis‰t‰‰n graafisen k‰yttˆliittym‰n kautta ja ne n‰kyy graafisesti taulukkona (vrt. perinteinen lukuj‰rjestys). Lukuj‰rjestyst‰ voi tallentaa, muokata ja tulostaa.
+**Aihe**: Ohjelma, jolla voi tehd√§ lukuj√§rjestyksi√§/suunnitella s√§√§nn√∂llisi√§ askareita. Ohjelmassa tapahtumia lis√§t√§√§n graafisen k√§ytt√∂liittym√§n kautta ja ne n√§kyy graafisesti taulukkona (vrt. perinteinen lukuj√§rjestys). Lukuj√§rjestyst√§ voi tallentaa, muokata ja tulostaa.
 
-**K‰ytt‰j‰t**: Henkilˆ
+**K√§ytt√§j√§t**: Henkil√∂
 
-**K‰ytt‰j‰n toiminnot**: 
-* Lis‰‰ eventti
+**K√§ytt√§j√§n toiminnot**: 
+* Lis√§√§ eventti
 * Poista eventti
-* Tallenna lukuj‰rjestys
-* Avaa lukuj‰rjestys
-* Tulosta lukuj‰rjestys
+* Tallenna lukuj√§rjestys
+* Avaa lukuj√§rjestys
+* Tulosta lukuj√§rjestys
+
+![Luokkakaavio](/dokumentaatio/luokkakaavio_05-02.png)
