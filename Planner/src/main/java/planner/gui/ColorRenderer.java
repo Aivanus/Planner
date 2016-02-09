@@ -19,8 +19,10 @@ public class ColorRenderer extends JLabel implements TableCellRenderer {
             int row, int column) {
 
         setBackground(Color.RED);
-        
-        setText(value.toString());
+
+        if (value != null) {
+            setText(value.toString());
+        }
 
         return this;
     }
