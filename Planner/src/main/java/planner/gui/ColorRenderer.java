@@ -5,6 +5,7 @@ import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
+import planner.domain.Task;
 
 public class ColorRenderer extends JLabel implements TableCellRenderer {
 
@@ -18,10 +19,13 @@ public class ColorRenderer extends JLabel implements TableCellRenderer {
             boolean isSelected, boolean hasFocus,
             int row, int column) {
 
-        setBackground(Color.RED);
-
+        Task task = (Task) value;
         if (value != null) {
-            setText(value.toString());
+            setBackground(task.getColor());
+            setText((task.getName()));
+        } else {
+            setBackground(Color.cyan);
+            setText("");
         }
 
         return this;

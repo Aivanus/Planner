@@ -59,19 +59,19 @@ public class TimeTest {
         Time time = new Time(12);
         assertEquals("12:0", time.toString());
     }
-    
+
     @Test
-    public void inputIsConvertedToMinutesCorrectly(){
-        Time time = new Time(0,0);
+    public void inputIsConvertedToMinutesCorrectly() {
+        Time time = new Time(0, 0);
         assertEquals(0, time.getTimeInMinutes());
-        
-        time = new Time(2,0);
+
+        time = new Time(2, 0);
         assertEquals(120, time.getTimeInMinutes());
-        
-        time = new Time(0,2);
+
+        time = new Time(0, 2);
         assertEquals(2, time.getTimeInMinutes());
-        
-        time = new Time(24,0);
+
+        time = new Time(24, 0);
         assertEquals(1440, time.getTimeInMinutes());
     }
 

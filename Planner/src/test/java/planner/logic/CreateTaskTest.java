@@ -57,39 +57,39 @@ public class CreateTaskTest {
     }
 
     @Test
-    public void CorrectInputsCreateTask() {   
+    public void CorrectInputsCreateTask() {
         Task task = ct.createTask();
         assertEquals("Test, MONDAY, 12:0-13:0", task.toString());
     }
-    
+
     @Test
-    public void IfFieldsAreEmptyReturnNull(){
+    public void IfFieldsAreEmptyReturnNull() {
         nameArea.setText("");
         timeStartArea.setText("");
         timeEndArea.setText("");
-        
+
         Task task = ct.createTask();
         assertEquals(null, task);
     }
-    
+
     @Test
-    public void IfTimeIsNegativeReturnNull(){
+    public void IfTimeIsNegativeReturnNull() {
         timeStartArea.setText("-1");
         timeEndArea.setText("-1");
         Task task = ct.createTask();
         assertEquals(null, task);
     }
-    
+
     @Test
-    public void IfTimeIsTooHighReturnNull(){
+    public void IfTimeIsTooHighReturnNull() {
         timeStartArea.setText("24");
         timeEndArea.setText("24");
         Task task = ct.createTask();
         assertEquals(null, task);
     }
-    
+
     @Test
-    public void IfStartTimeIsHigherThanEndReturnNull(){
+    public void IfStartTimeIsHigherThanEndReturnNull() {
         timeStartArea.setText("13");
         timeEndArea.setText("12");
         Task task = ct.createTask();
