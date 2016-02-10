@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package planner.gui;
+package planner.logic;
 
+import planner.logic.CreateTask;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.tree.DefaultTreeCellEditor;

@@ -1,4 +1,4 @@
-package planner.gui;
+package planner.logic;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;

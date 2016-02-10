@@ -5,6 +5,7 @@
  */
 package planner.gui;
 
+import planner.logic.CreateTask;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
