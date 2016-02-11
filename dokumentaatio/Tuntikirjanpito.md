@@ -20,4 +20,7 @@
 
 10.02.2016
 * (0,5h) Suunnittelu
-* (2,5) Ohjelmointi
+* (2,5h) Ohjelmointi
+
+11.02.2016
+* (0,5h) Ohjelmointi
