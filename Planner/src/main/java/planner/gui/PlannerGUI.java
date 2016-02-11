@@ -293,7 +293,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-       // CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox, currentColor);//voisi tehfä private CreateTask, jottei tarvitsisi luoda sitä täällä aina
+        // CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox, currentColor);//voisi tehfä private CreateTask, jottei tarvitsisi luoda sitä täällä aina
         ct.setColor(currentColor);
         Task task = ct.createTask();
 
@@ -316,8 +316,6 @@ public class PlannerGUI extends javax.swing.JFrame {
         currentColor = JColorChooser.showDialog(new JDialog(), "Color", currentColor);
         chosenColor.setForeground(currentColor);
         chosenColor.setBackground(currentColor);
-
-//        chosenColor.repaint();
     }//GEN-LAST:event_colorChooserActionPerformed
 
     private void updateCell(Task task) {

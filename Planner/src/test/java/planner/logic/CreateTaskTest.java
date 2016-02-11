@@ -5,6 +5,7 @@
  */
 package planner.logic;
 
+import java.awt.Color;
 import planner.logic.CreateTask;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -30,6 +31,7 @@ public class CreateTaskTest {
     private JTextField timeStartArea;
     private JTextField timeEndArea;
     private JComboBox dayBox;
+    private Color color;
 
     public CreateTaskTest() {
 
@@ -49,7 +51,8 @@ public class CreateTaskTest {
         timeStartArea = new JTextField("12");
         timeEndArea = new JTextField("13");
         dayBox = new JComboBox(values());
-        ct = new CreateTask(nameArea, timeStartArea, timeEndArea, dayBox);
+        color = Color.WHITE;
+        ct = new CreateTask(nameArea, timeStartArea, timeEndArea, dayBox, color);
     }
 
     @After

@@ -18,13 +18,13 @@ public class CreateTask {
     private Color color;
     //private JButton createButton;
 
-    public CreateTask(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox) {
-        this.nameArea = nameArea;
-        this.timeStartArea = timeStartArea;
-        this.timeEndArea = timeEndArea;
-        this.dayBox = dayBox;
-        // this.createButton = createButton;
-    }
+//    public CreateTask(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox) {
+//        this.nameArea = nameArea;
+//        this.timeStartArea = timeStartArea;
+//        this.timeEndArea = timeEndArea;
+//        this.dayBox = dayBox;
+//        // this.createButton = createButton;
+//    }
 
     public CreateTask(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox, Color color) {
         this.nameArea = nameArea;
@@ -68,7 +68,6 @@ public class CreateTask {
             return null;
         }
         Task task = new Task(name, start, end, day, color);
-        System.out.println(task);
 
         return task;
     }
