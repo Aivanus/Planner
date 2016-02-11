@@ -25,6 +25,7 @@ public class PlannerGUI extends javax.swing.JFrame {
 
     private List<Task> tasks;
     private Color currentColor;
+    private CreateTask ct;
 
     /**
      * Creates new form PlannerGUI
@@ -32,6 +33,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     public PlannerGUI() {
         initComponents();
         this.tasks = new ArrayList<>();
+        this.ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox, currentColor);
     }
 
     /**
@@ -291,7 +293,8 @@ public class PlannerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox, currentColor);
+       // CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox, currentColor);//voisi tehfä private CreateTask, jottei tarvitsisi luoda sitä täällä aina
+        ct.setColor(currentColor);
         Task task = ct.createTask();
 
         if (task != null) {

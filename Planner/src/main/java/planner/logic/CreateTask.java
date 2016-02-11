@@ -35,6 +35,10 @@ public class CreateTask {
         // this.createButton = createButton;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     public Task createTask() {
 
         String name = nameArea.getText();
