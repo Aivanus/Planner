@@ -9,4 +9,4 @@
 * Avaa lukujärjestys
 * Tulosta lukujärjestys
 
-![Luokkakaavio](/dokumentaatio/luokkakaavio_05-02.png)
+![Luokkakaavio](/dokumentaatio/luokkakaavio_12.2.png)
