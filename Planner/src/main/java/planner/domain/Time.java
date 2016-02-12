@@ -1,5 +1,8 @@
 package planner.domain;
 
+/**
+ * Luokka säilyttää aikatietoja.
+ */
 public class Time {
 
     private int hours;
@@ -22,6 +25,11 @@ public class Time {
         return minutes;
     }
 
+    /**
+     * Metodi palauttaa ajan minuuteina.
+     *
+     * @return aika minuuteina.
+     */
     public int getTimeInMinutes() {
         return hours * 60 + minutes;
     }

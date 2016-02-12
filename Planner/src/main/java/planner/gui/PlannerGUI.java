@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package planner.gui;
 
 import java.awt.Color;
@@ -21,6 +16,9 @@ import javax.swing.table.TableCellEditor;
 import planner.domain.Day;
 import planner.domain.Task;
 
+/**
+ * Graafinen käyttöliittymä.
+ */
 public class PlannerGUI extends javax.swing.JFrame {
 
     private List<Task> tasks;
@@ -33,7 +31,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     public PlannerGUI() {
         initComponents();
         this.tasks = new ArrayList<>();
-        this.ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox, currentColor);
+        this.ct = new CreateTask(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
     }
 
     /**
@@ -53,7 +51,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         dayComboBox = new javax.swing.JComboBox();
         timeStartTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        TimeEndTextField = new javax.swing.JTextField();
+        timeEndTextField = new javax.swing.JTextField();
         createButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         colorChooser = new javax.swing.JButton();
@@ -86,7 +84,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("-");
 
-        TimeEndTextField.setText("00");
+        timeEndTextField.setText("00");
 
         createButton.setText("OK");
         createButton.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +131,7 @@ public class PlannerGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TimeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(timeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(colorChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -151,7 +149,7 @@ public class PlannerGUI extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {TimeEndTextField, timeStartTextField});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {timeEndTextField, timeStartTextField});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {chosenColor, colorChooser});
 
@@ -171,7 +169,7 @@ public class PlannerGUI extends javax.swing.JFrame {
                     .addComponent(timeLabel)
                     .addComponent(timeStartTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(TimeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(timeEndTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(colorChooser)
@@ -185,7 +183,7 @@ public class PlannerGUI extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {TimeEndTextField, timeStartTextField});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {timeEndTextField, timeStartTextField});
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dayComboBox, nameTextField});
 
@@ -367,7 +365,6 @@ public class PlannerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TimeEndTextField;
     private javax.swing.JLabel chosenColor;
     private javax.swing.JButton colorChooser;
     private javax.swing.JButton createButton;
@@ -381,6 +378,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JTable schedule;
+    private javax.swing.JTextField timeEndTextField;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JTextField timeStartTextField;
     // End of variables declaration//GEN-END:variables

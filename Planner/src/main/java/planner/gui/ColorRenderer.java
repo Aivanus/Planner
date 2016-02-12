@@ -7,6 +7,9 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 import planner.domain.Task;
 
+/**
+ * Luokka, jolla korvataan JTablen vakio Renderer, jotta soluja voisi värittää.
+ */
 public class ColorRenderer extends JLabel implements TableCellRenderer {
 
     public ColorRenderer() {

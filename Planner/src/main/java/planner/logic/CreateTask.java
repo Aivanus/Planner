@@ -9,6 +9,9 @@ import planner.domain.Day;
 import planner.domain.Task;
 import planner.domain.Time;
 
+/**
+ * Luokka luo uuden "Task"-olion.
+ */
 public class CreateTask {
 
     private JTextField nameArea;
@@ -25,7 +28,15 @@ public class CreateTask {
 //        this.dayBox = dayBox;
 //        // this.createButton = createButton;
 //    }
-
+    /**
+     * Konstruktori luo luokan seuraavien.
+     *
+     * @param nameArea tekstikenttä, johon syötetään tehtävän nimi
+     * @param timeStartArea tekstikenttä johon syötetään alkamisaika
+     * @param timeEndArea tekstikenttä, johon syötetään loppumisaika
+     * @param dayBox combobox, joka sisältää päiviä
+     * @param color color-olio
+     */
     public CreateTask(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox, Color color) {
         this.nameArea = nameArea;
         this.timeStartArea = timeStartArea;
@@ -39,22 +50,23 @@ public class CreateTask {
         this.color = color;
     }
 
+    /**
+     * Metodi, joka luo uuden "task"-olion, jos oliomuuttujien data on oikein
+     * (ei null, liian suuri yms).
+     *
+     * @return palauttaa uuden task-olion, jos parametrit oikeat, muuten null
+     */
     public Task createTask() {
 
         String name = nameArea.getText();
 
         if (name.isEmpty()) {
-//            JOptionPane.showMessageDialog(new JFrame(),
-//                    "Give a name to the task", "Invalid input",
-//                    JOptionPane.ERROR_MESSAGE);
             return null;
         }
+
         Day day = (Day) dayBox.getSelectedItem();
 
         if (timeStartArea.getText().isEmpty() || timeEndArea.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(new JFrame(),
-//                    "Time cannot be empty", "Invalid input",
-//                    JOptionPane.ERROR_MESSAGE);
             return null;
         }
         Time start = new Time(Integer.parseInt(timeStartArea.getText()));
@@ -62,13 +74,9 @@ public class CreateTask {
 
         if (start.getHours() > 23 || start.getHours() < 0
                 || end.getHours() > 23 || end.getHours() < 0 || end.getHours() < start.getHours()) {
-//            JOptionPane.showMessageDialog(new JFrame(),
-//                    "Invalid time", "Invalid input",
-//                    JOptionPane.ERROR_MESSAGE);
             return null;
         }
         Task task = new Task(name, start, end, day, color);
-
         return task;
     }
 

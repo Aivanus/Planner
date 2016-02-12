@@ -2,6 +2,9 @@ package planner.domain;
 
 import java.awt.Color;
 
+/**
+ * Luokka säilyttää ja palauttaa yhteen "tehtävään" liityyää tietoa.
+ */
 public class Task {
 
     private String name;
@@ -18,6 +21,16 @@ public class Task {
         this.color = Color.white;
     }
 
+    /**
+     * Konstruktori, joka luo uuden tehtävän.
+     *
+     * @param name tehtävän nimi
+     * @param start tehtävän alkamisaika
+     * @param end tehtävän loppumisaika
+     * @param day päivä, jolle tehtävä merkitään
+     * @param color minkä värinen taulukon solusta tulee, kun tehtävä lisätään
+     * taulukkoon
+     */
     public Task(String name, Time start, Time end, Day day, Color color) {
         this.name = name;
         this.start = start;
@@ -38,10 +51,20 @@ public class Task {
         return end.getHours();
     }
 
+    /**
+     * Metodi palauttaa tehtävälle merkatun päivän järjestysnumeron.
+     *
+     * @return päivän järjestysnumero
+     */
     public int getDay() {
         return day.getOrdNumber();
     }
 
+    /**
+     * Metodi palauttaa tehtävän keston tunteina.
+     *
+     * @return tehtävän kesto tunteina
+     */
     public int getDuration() {
         return end.getHours() - start.getHours();
     }

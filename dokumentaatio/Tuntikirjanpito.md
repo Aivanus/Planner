@@ -24,3 +24,6 @@
 
 11.02.2016
 * (0,5h) Ohjelmointi
+
+12.02.2016
+* (1,5h) Dokumentointi ja testaus
