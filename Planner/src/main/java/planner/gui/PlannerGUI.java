@@ -32,6 +32,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         initComponents();
         this.tasks = new ArrayList<>();
         this.ct = new CreateTask(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
+
     }
 
     /**
@@ -53,7 +54,6 @@ public class PlannerGUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         timeEndTextField = new javax.swing.JTextField();
         createButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         colorChooser = new javax.swing.JButton();
         chosenColor = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -90,13 +90,6 @@ public class PlannerGUI extends javax.swing.JFrame {
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createButtonActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("For testing purposes only");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -137,10 +130,6 @@ public class PlannerGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chosenColor, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -176,9 +165,7 @@ public class PlannerGUI extends javax.swing.JFrame {
                     .addComponent(chosenColor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(createButton)
-                .addGap(48, 48, 48)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(82, 82, 82))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
@@ -304,10 +291,6 @@ public class PlannerGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_createButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        schedule.setDefaultRenderer(String.class, new ColorRenderer());
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void colorChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChooserActionPerformed
         JColorChooser tcc = new JColorChooser();
         tcc.setPreviewPanel(new JPanel());
@@ -317,7 +300,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_colorChooserActionPerformed
 
     private void updateCell(Task task) {
-        String name = task.getName();
+        schedule.setDefaultRenderer(String.class, new ColorRenderer());
         int time = task.getStartTime();
         int day = task.getDay();
 //        schedule.getColumnModel().getColumn(day).setCellRenderer(new ColorRenderer());
@@ -370,7 +353,6 @@ public class PlannerGUI extends javax.swing.JFrame {
     private javax.swing.JButton createButton;
     private javax.swing.JComboBox dayComboBox;
     private javax.swing.JLabel dayLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
