@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Renderer;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableModel;
 import planner.domain.Day;
 import planner.domain.Task;
 
@@ -34,7 +35,6 @@ public class PlannerGUI extends javax.swing.JFrame {
         this.tasks = new ArrayList<>();
         this.ct = new CreateTask(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
         schedule.setDefaultRenderer(String.class, new ColorRenderer());
-
     }
 
     /**
@@ -59,6 +59,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         colorChooser = new javax.swing.JButton();
         chosenColor = new javax.swing.JLabel();
         printButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         schedule = new javax.swing.JTable();
@@ -112,6 +113,13 @@ public class PlannerGUI extends javax.swing.JFrame {
             }
         });
 
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,7 +155,9 @@ public class PlannerGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(printButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(deleteButton)
+                .addContainerGap())
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
@@ -180,7 +190,9 @@ public class PlannerGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(createButton)
                 .addGap(59, 59, 59)
-                .addComponent(printButton))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(printButton)
+                    .addComponent(deleteButton)))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
@@ -238,8 +250,8 @@ public class PlannerGUI extends javax.swing.JFrame {
             }
         });
         schedule.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        schedule.setEnabled(false);
-        schedule.setRowSelectionAllowed(false);
+        schedule.setCellSelectionEnabled(true);
+        schedule.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         schedule.setShowHorizontalLines(false);
         schedule.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(schedule);
@@ -316,37 +328,46 @@ public class PlannerGUI extends javax.swing.JFrame {
 
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
         try {
-    boolean complete = schedule.print();
-    if (complete) {
-        System.out.println("Complete");
-        JOptionPane.showMessageDialog(new JFrame()
-                    , "Printing successful","Print status",
-                    JOptionPane.INFORMATION_MESSAGE);
-    } else {
-        System.out.println("Cancelled");
-        JOptionPane.showMessageDialog(new JFrame()
-                    , "Printing cancelled","Print status",
-                    JOptionPane.INFORMATION_MESSAGE);
-    }
-} catch (PrinterException pe) {
-            System.out.println("errororeroero");
-            JOptionPane.showMessageDialog(new JFrame()
-                    , "Error","Print status",
+            boolean complete = schedule.print();
+            if (complete) {
+                JOptionPane.showMessageDialog(new JFrame(), "Printing successful", "Print status",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(new JFrame(), "Printing cancelled", "Print status",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (PrinterException pe) {
+            JOptionPane.showMessageDialog(new JFrame(), "Error", "Print status",
                     JOptionPane.ERROR_MESSAGE);
-}
+        }
     }//GEN-LAST:event_printButtonActionPerformed
 
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+//        int day = dayComboBox.getSelectedIndex() + 1;
+//        int startTime = Integer.parseInt(timeStartTextField.getText());
+//        int endTime = Integer.parseInt(timeEndTextField.getText());
+//        int duration = endTime - startTime;
+//        
+//        for (int i = startTime; i < endTime; i++) {
+//            schedule.setValueAt(null,i,day);
+//            
+//        }
+
+        int column = schedule.getSelectedColumn();
+        int row = schedule.getSelectedRow();
+        if (column == 0) {
+            return;
+        }
+        schedule.setValueAt(null, row, column);
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
     private void updateCell(Task task) {
-        
         int time = task.getStartTime();
         int day = task.getDay();
-//        schedule.getColumnModel().getColumn(day).setCellRenderer(new ColorRenderer());
 
         for (int i = 0; i < task.getDuration(); i++) {
             schedule.setValueAt(task, time + i, day);
         }
-
-        //schedule.setValueAt(name, time, day);
     }
 
     /**
@@ -377,10 +398,8 @@ public class PlannerGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PlannerGUI().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PlannerGUI().setVisible(true);
         });
     }
 
@@ -390,6 +409,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     private javax.swing.JButton createButton;
     private javax.swing.JComboBox dayComboBox;
     private javax.swing.JLabel dayLabel;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

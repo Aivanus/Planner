@@ -85,8 +85,8 @@ public class CreateTaskTest {
 
     @Test
     public void IfTimeIsTooHighReturnNull() {
-        timeStartArea.setText("24");
-        timeEndArea.setText("24");
+        timeStartArea.setText("25");
+        timeEndArea.setText("25");
         Task task = ct.createTask();
         assertEquals(null, task);
     }

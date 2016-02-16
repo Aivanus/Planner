@@ -72,8 +72,8 @@ public class CreateTask {
         Time start = new Time(Integer.parseInt(timeStartArea.getText()));
         Time end = new Time(Integer.parseInt(timeEndArea.getText()));
 
-        if (start.getHours() > 23 || start.getHours() < 0
-                || end.getHours() > 23 || end.getHours() < 0 || end.getHours() < start.getHours()) {
+        if (start.getHours() > 24 || start.getHours() < 0
+                || end.getHours() > 24 || end.getHours() < 0 || end.getHours() < start.getHours()) {
             return null;
         }
         Task task = new Task(name, start, end, day, color);
