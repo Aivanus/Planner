@@ -3,6 +3,7 @@ package planner.gui;
 import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Frame;
+import java.awt.print.PrinterException;
 import planner.logic.CreateTask;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         createButton = new javax.swing.JButton();
         colorChooser = new javax.swing.JButton();
         chosenColor = new javax.swing.JLabel();
+        printButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         schedule = new javax.swing.JTable();
@@ -102,6 +104,13 @@ public class PlannerGUI extends javax.swing.JFrame {
 
         chosenColor.setOpaque(true);
 
+        printButton.setText("Print");
+        printButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -134,6 +143,10 @@ public class PlannerGUI extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(createButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(printButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
@@ -165,7 +178,8 @@ public class PlannerGUI extends javax.swing.JFrame {
                     .addComponent(chosenColor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(createButton)
-                .addGap(82, 82, 82))
+                .addGap(59, 59, 59)
+                .addComponent(printButton))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dayLabel, nameLabel, timeLabel});
@@ -299,6 +313,28 @@ public class PlannerGUI extends javax.swing.JFrame {
         chosenColor.setBackground(currentColor);
     }//GEN-LAST:event_colorChooserActionPerformed
 
+    private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
+        try {
+    boolean complete = schedule.print();
+    if (complete) {
+        System.out.println("Complete");
+        JOptionPane.showMessageDialog(new JFrame()
+                    , "Printing successful","Print status",
+                    JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        System.out.println("Cancelled");
+        JOptionPane.showMessageDialog(new JFrame()
+                    , "Printing cancelled","Print status",
+                    JOptionPane.INFORMATION_MESSAGE);
+    }
+} catch (PrinterException pe) {
+            System.out.println("errororeroero");
+            JOptionPane.showMessageDialog(new JFrame()
+                    , "Error","Print status",
+                    JOptionPane.ERROR_MESSAGE);
+}
+    }//GEN-LAST:event_printButtonActionPerformed
+
     private void updateCell(Task task) {
         schedule.setDefaultRenderer(String.class, new ColorRenderer());
         int time = task.getStartTime();
@@ -359,6 +395,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
+    private javax.swing.JButton printButton;
     private javax.swing.JTable schedule;
     private javax.swing.JTextField timeEndTextField;
     private javax.swing.JLabel timeLabel;
