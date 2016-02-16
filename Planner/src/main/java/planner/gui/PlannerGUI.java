@@ -33,6 +33,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         initComponents();
         this.tasks = new ArrayList<>();
         this.ct = new CreateTask(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
+        schedule.setDefaultRenderer(String.class, new ColorRenderer());
 
     }
 
@@ -336,7 +337,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_printButtonActionPerformed
 
     private void updateCell(Task task) {
-        schedule.setDefaultRenderer(String.class, new ColorRenderer());
+        
         int time = task.getStartTime();
         int day = task.getDay();
 //        schedule.getColumnModel().getColumn(day).setCellRenderer(new ColorRenderer());
