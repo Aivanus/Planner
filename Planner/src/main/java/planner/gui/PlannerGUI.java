@@ -343,15 +343,6 @@ public class PlannerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_printButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-//        int day = dayComboBox.getSelectedIndex() + 1;
-//        int startTime = Integer.parseInt(timeStartTextField.getText());
-//        int endTime = Integer.parseInt(timeEndTextField.getText());
-//        int duration = endTime - startTime;
-//        
-//        for (int i = startTime; i < endTime; i++) {
-//            schedule.setValueAt(null,i,day);
-//            
-//        }
 
         int column = schedule.getSelectedColumn();
         int row = schedule.getSelectedRow();

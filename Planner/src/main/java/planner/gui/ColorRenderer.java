@@ -25,6 +25,7 @@ public class ColorRenderer extends JLabel implements TableCellRenderer {
             JTable table, Object value,
             boolean isSelected, boolean hasFocus,
             int row, int column) {
+
         Task task = (Task) value;
         Color alternate = UIManager.getColor("Table.alternateRowColor");
 
