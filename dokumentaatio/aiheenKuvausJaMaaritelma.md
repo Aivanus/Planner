@@ -8,7 +8,7 @@
 * Tulosta lukujärjestys
 
 **Luokkakaavio**
-![Luokkakaavio](/dokumentaatio/luokkakaavio_12.08.png)
+![Luokkakaavio](/dokumentaatio/luokkakaavio_18.02.png)
 **Sekvenssikaaviot**
 ![Onnistunut eventin luominen](/dokumentaatio/Onnistunut_eventin_luominen.png)
 ![Onnistunut eventin lisääminen lukujärjestykseen](/dokumentaatio/Onnistunut_eventin_lisääminen_lukujärjestykseen.png)
