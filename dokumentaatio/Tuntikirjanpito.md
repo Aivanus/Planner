@@ -30,3 +30,7 @@
 
 16.02.2016
 * (2,5h) Ohjelmointi ja suunnittelu
+
+18.02.2016
+* (1,5h) Koodin siistiminen ja bugien tuhoaminen
+* (1,5h) Checkstylen konfigurointi, tyylivirheiden korjaaminen, sekvenssikaavioiden luominen

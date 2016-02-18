@@ -24,14 +24,14 @@ import planner.domain.Task;
 public class PlannerGUI extends javax.swing.JFrame {
 
     private Color currentColor;
-    private TaskFactory ct;
+    private TaskFactory tf;
 
     /**
      * Creates new form PlannerGUI
      */
     public PlannerGUI() {
         initComponents();
-        this.ct = new TaskFactory(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
+        this.tf = new TaskFactory(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
         schedule.setDefaultRenderer(String.class, new ColorRenderer());
     }
 
@@ -303,8 +303,8 @@ public class PlannerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        ct.setColor(currentColor);
-        Task task = ct.createTask();
+        tf.setColor(currentColor);
+        Task task = tf.createTask();
 
         if (task != null) {
             updateCell(task);
