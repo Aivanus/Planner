@@ -41,11 +41,11 @@
                 <configuration>
                     <targetClasses>
                         <param>planner.domain.*</param>
-                        <param>planner.logic.CreateTask</param>
+                        <param>planner.logic.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>planner.domain.*</param>
-                        <param>planner.logic.CreateTaskTest</param>
+                        <param>planner.logic.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.print.PrinterException;
-import planner.logic.CreateTask;
+import planner.logic.TaskFactory;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JColorChooser;
@@ -23,17 +23,15 @@ import planner.domain.Task;
  */
 public class PlannerGUI extends javax.swing.JFrame {
 
-    private List<Task> tasks;
     private Color currentColor;
-    private CreateTask ct;
+    private TaskFactory ct;
 
     /**
      * Creates new form PlannerGUI
      */
     public PlannerGUI() {
         initComponents();
-        this.tasks = new ArrayList<>();
-        this.ct = new CreateTask(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
+        this.ct = new TaskFactory(nameTextField, timeStartTextField, timeEndTextField, dayComboBox, currentColor);
         schedule.setDefaultRenderer(String.class, new ColorRenderer());
     }
 
@@ -305,7 +303,6 @@ public class PlannerGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        // CreateTask ct = new CreateTask(nameTextField, timeStartTextField, TimeEndTextField, dayComboBox, currentColor);//voisi tehfä private CreateTask, jottei tarvitsisi luoda sitä täällä aina
         ct.setColor(currentColor);
         Task task = ct.createTask();
 

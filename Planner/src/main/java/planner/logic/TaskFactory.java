@@ -12,7 +12,7 @@ import planner.domain.Time;
 /**
  * Luokka luo uuden "Task"-olion.
  */
-public class CreateTask {
+public class TaskFactory {
 
     private JTextField nameArea;
     private JTextField timeStartArea;
@@ -21,7 +21,7 @@ public class CreateTask {
     private Color color;
     //private JButton createButton;
 
-//    public CreateTask(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox) {
+//    public TaskFactory(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox) {
 //        this.nameArea = nameArea;
 //        this.timeStartArea = timeStartArea;
 //        this.timeEndArea = timeEndArea;
@@ -37,7 +37,7 @@ public class CreateTask {
      * @param dayBox combobox, joka sisältää päiviä
      * @param color color-olio
      */
-    public CreateTask(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox, Color color) {
+    public TaskFactory(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox, Color color) {
         this.nameArea = nameArea;
         this.timeStartArea = timeStartArea;
         this.timeEndArea = timeEndArea;
@@ -59,18 +59,29 @@ public class CreateTask {
     public Task createTask() {
 
         String name = nameArea.getText();
+        String startTimeText = timeStartArea.getText();
+        String endTimeText = timeEndArea.getText();
+        Day day = (Day) dayBox.getSelectedItem();
+        Time start;
+        Time end;
 
         if (name.isEmpty()) {
             return null;
         }
-
-        Day day = (Day) dayBox.getSelectedItem();
-
-        if (timeStartArea.getText().isEmpty() || timeEndArea.getText().isEmpty()) {
+        if (startTimeText.isEmpty() || endTimeText.isEmpty()) {
             return null;
         }
-        Time start = new Time(Integer.parseInt(timeStartArea.getText()));
-        Time end = new Time(Integer.parseInt(timeEndArea.getText()));
+
+        try {
+            start = new Time(Integer.parseInt(timeStartArea.getText()));
+        } catch (Exception e) {
+            return null;
+        }
+        try {
+            end = new Time(Integer.parseInt(timeEndArea.getText()));
+        } catch (Exception e) {
+            return null;
+        }
 
         if (start.getHours() > 24 || start.getHours() < 0
                 || end.getHours() > 24 || end.getHours() < 0 || end.getHours() < start.getHours()) {

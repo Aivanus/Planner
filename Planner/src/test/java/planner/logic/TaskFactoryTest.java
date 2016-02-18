@@ -6,7 +6,7 @@
 package planner.logic;
 
 import java.awt.Color;
-import planner.logic.CreateTask;
+import planner.logic.TaskFactory;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.tree.DefaultTreeCellEditor;
@@ -24,16 +24,16 @@ import planner.domain.Task;
  *
  * @author Ivan
  */
-public class CreateTaskTest {
+public class TaskFactoryTest {
 
-    private CreateTask ct;
+    private TaskFactory ct;
     private JTextField nameArea;
     private JTextField timeStartArea;
     private JTextField timeEndArea;
     private JComboBox dayBox;
     private Color color;
 
-    public CreateTaskTest() {
+    public TaskFactoryTest() {
 
     }
 
@@ -52,7 +52,7 @@ public class CreateTaskTest {
         timeEndArea = new JTextField("13");
         dayBox = new JComboBox(values());
         color = Color.WHITE;
-        ct = new CreateTask(nameArea, timeStartArea, timeEndArea, dayBox, color);
+        ct = new TaskFactory(nameArea, timeStartArea, timeEndArea, dayBox, color);
     }
 
     @After
