@@ -16,6 +16,9 @@ import planner.domain.Task;
  */
 public class ColorRenderer extends JLabel implements TableCellRenderer {
 
+    /**
+     * Konstruktori, joka asettaa Opaque trueksi, jotta värit näkyvät oikein.
+     */
     public ColorRenderer() {
         setOpaque(true);
     }
