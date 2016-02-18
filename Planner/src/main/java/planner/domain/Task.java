@@ -13,13 +13,13 @@ public class Task {
     private Day day;
     private Color color;
 
-    public Task(String name, Time start, Time end, Day day) {
-        this.name = name;
-        this.start = start;
-        this.end = end;
-        this.day = day;
-        this.color = Color.white;
-    }
+//    public Task(String name, Time start, Time end, Day day) {
+//        this.name = name;
+//        this.start = start;
+//        this.end = end;
+//        this.day = day;
+//        this.color = Color.white;
+//    }
 
     /**
      * Konstruktori, joka luo uuden tehtävän.
