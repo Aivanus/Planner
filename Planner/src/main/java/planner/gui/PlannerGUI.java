@@ -61,6 +61,7 @@ public class PlannerGUI extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         schedule = new javax.swing.JTable();
+        clearButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Planner");
@@ -252,6 +253,11 @@ public class PlannerGUI extends javax.swing.JFrame {
         schedule.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         schedule.setShowHorizontalLines(false);
         schedule.getTableHeader().setReorderingAllowed(false);
+        schedule.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                scheduleMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(schedule);
         if (schedule.getColumnModel().getColumnCount() > 0) {
             schedule.getColumnModel().getColumn(0).setResizable(false);
@@ -276,13 +282,17 @@ public class PlannerGUI extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
         );
 
+        clearButton.setText("Clear");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clearButton))
                 .addGap(28, 28, 28)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -295,6 +305,8 @@ public class PlannerGUI extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(clearButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -349,9 +361,35 @@ public class PlannerGUI extends javax.swing.JFrame {
         schedule.setValueAt(null, row, column);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
+    private void scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scheduleMouseClicked
+        if (evt.getClickCount() >= 2) {
+
+            int c = schedule.getSelectedColumn();
+            int r = schedule.getSelectedRow();
+
+            if (c == 0) {
+                return;
+            }
+
+            Object o = schedule.getValueAt(r, c);
+
+            if (o == null) {
+                return;
+            }
+            Task task = (Task) o;
+            JOptionPane.showMessageDialog(new JFrame(), task.getName() + "\n" + task.getDay() + "\n" + task.getStartTime() + "-" + task.getEndTime(), "Task details",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+//        if (o != null) {
+//            JOptionPane.showMessageDialog(new JFrame(), task.toString() + "\n hehe", "Task details",
+//                    JOptionPane.PLAIN_MESSAGE);
+//            System.out.println(schedule.getValueAt(r, c));
+//        }
+    }//GEN-LAST:event_scheduleMouseClicked
+
     private void updateCell(Task task) {
         int time = task.getStartTime();
-        int day = task.getDay();
+        int day = task.getDayNumber();
 
         for (int i = 0; i < task.getDuration(); i++) {
             schedule.setValueAt(task, time + i, day);
@@ -393,6 +431,7 @@ public class PlannerGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel chosenColor;
+    private javax.swing.JButton clearButton;
     private javax.swing.JButton colorChooser;
     private javax.swing.JButton createButton;
     private javax.swing.JComboBox dayComboBox;

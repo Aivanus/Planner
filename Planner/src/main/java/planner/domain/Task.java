@@ -43,12 +43,16 @@ public class Task {
         return end.getHours();
     }
 
+    public Day getDay() {
+        return day;
+    }
+
     /**
      * Metodi palauttaa tehtävälle merkatun päivän järjestysnumeron.
      *
      * @return päivän järjestysnumero
      */
-    public int getDay() {
+    public int getDayNumber() {
         return day.getOrdNumber();
     }
 

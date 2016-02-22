@@ -49,7 +49,7 @@ public class TaskTest {
     public void timeAndDayGettersWork() {
         assertEquals(12, task.getStartTime());
         assertEquals(13, task.getEndTime());
-        assertEquals(1, task.getDay());
+        assertEquals(1, task.getDayNumber());
     }
 
     @Test
