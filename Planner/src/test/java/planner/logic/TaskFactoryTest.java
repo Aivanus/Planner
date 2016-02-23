@@ -30,6 +30,7 @@ public class TaskFactoryTest {
     private JTextField nameArea;
     private JTextField timeStartArea;
     private JTextField timeEndArea;
+    private JTextField commentArea;
     private JComboBox dayBox;
     private Color color;
 
@@ -50,9 +51,10 @@ public class TaskFactoryTest {
         nameArea = new JTextField("Test");
         timeStartArea = new JTextField("12");
         timeEndArea = new JTextField("13");
+        commentArea = new JTextField("Test123");
         dayBox = new JComboBox(values());
         color = Color.WHITE;
-        ct = new TaskFactory(nameArea, timeStartArea, timeEndArea, dayBox, color);
+        ct = new TaskFactory(nameArea, timeStartArea, timeEndArea, commentArea, dayBox, color);
     }
 
     @After

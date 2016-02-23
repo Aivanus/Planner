@@ -22,7 +22,7 @@ public class Task {
      * @param end tehtävän loppumisaika
      * @param day päivä, jolle tehtävä merkitään
      * @param color minkä värinen taulukon solusta tulee, kun tehtävä lisätään
-     * taulukkoon
+     * @param comment tehtävään liittyvä lyhyt kommentti taulukkoon
      */
     public Task(String name, Time start, Time end, Day day, Color color, String comment) {
         this.name = name;

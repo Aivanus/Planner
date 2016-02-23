@@ -26,7 +26,7 @@ public class TaskTest {
 
     @Before
     public void setUp() {
-        task = new Task("test", new Time(12), new Time(13), MONDAY, Color.white);
+        task = new Task("test", new Time(12), new Time(13), MONDAY, Color.white, "Test123");
     }
 
     @After
@@ -35,7 +35,7 @@ public class TaskTest {
 
     @Test
     public void taskIsCreatedCorretly() {
-        Task t = new Task("test", new Time(12), new Time(13), MONDAY, Color.white);
+        Task t = new Task("test", new Time(12), new Time(13), MONDAY, Color.white, "Test123");
         assertEquals("test, MONDAY, 12:0-13:0", t.toString());
     }
 

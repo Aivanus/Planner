@@ -22,7 +22,7 @@ import planner.domain.Task;
  * Graafinen käyttöliittymä.
  */
 public class PlannerGUI extends javax.swing.JFrame {
-
+    
     private Color currentColor;
     private TaskFactory tf;
 
@@ -350,7 +350,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         tf.setColor(currentColor);
         Task task = tf.createTask();
-
+        
         if (task != null) {
             updateCell(task);
         } else {
@@ -385,7 +385,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_printButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-
+        
         int column = schedule.getSelectedColumn();
         int row = schedule.getSelectedRow();
         if (column == 0) {
@@ -396,16 +396,16 @@ public class PlannerGUI extends javax.swing.JFrame {
 
     private void scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scheduleMouseClicked
         if (evt.getClickCount() >= 2) {
-
+            
             int c = schedule.getSelectedColumn();
             int r = schedule.getSelectedRow();
-
+            
             if (c == 0) {
                 return;
             }
-
+            
             Object o = schedule.getValueAt(r, c);
-
+            
             if (o == null) {
                 return;
             }
@@ -430,11 +430,11 @@ public class PlannerGUI extends javax.swing.JFrame {
         chosenColor.setForeground(currentColor);
         chosenColor.setBackground(currentColor);
     }//GEN-LAST:event_clearButtonActionPerformed
-
+    
     private void updateCell(Task task) {
         int time = task.getStartTime();
         int day = task.getDayNumber();
-
+        
         for (int i = 0; i < task.getDuration(); i++) {
             schedule.setValueAt(task, time + i, day);
         }

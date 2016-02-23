@@ -32,9 +32,10 @@ public class TaskFactory {
     /**
      * Konstruktori luo luokan seuraavien.
      *
-     * @param nameArea tekstikenttä, johon syötetään tehtävän nimi
-     * @param timeStartArea tekstikenttä johon syötetään alkamisaika
-     * @param timeEndArea tekstikenttä, johon syötetään loppumisaika
+     * @param nameArea tekstikenttä, johon on syötetty tehtävän nimi
+     * @param timeStartArea tekstikenttä johon on syötetty alkamisaika
+     * @param timeEndArea tekstikenttä, johon on syötetty loppumisaika
+     * @param commentArea tekstikenttä, johon on syötetty kommentti
      * @param dayBox combobox, joka sisältää päiviä
      * @param color color-olio
      */
