@@ -62,13 +62,13 @@ public class TaskFactoryTest {
     }
 
     @Test
-    public void CorrectInputsCreateTask() {
+    public void correctInputsCreateTask() {
         Task task = ct.createTask();
         assertEquals("Test, MONDAY, 12:0-13:0", task.toString());
     }
 
     @Test
-    public void IfFieldsAreEmptyReturnNull() {
+    public void ifFieldsAreEmptyReturnNull() {
         nameArea.setText("");
         timeStartArea.setText("");
         timeEndArea.setText("");
@@ -78,7 +78,16 @@ public class TaskFactoryTest {
     }
 
     @Test
-    public void IfTimeIsNegativeReturnNull() {
+    public void ifTimeFieldsAreEmptyReturnNull() {
+        timeStartArea.setText("");
+        timeEndArea.setText("");
+
+        Task task = ct.createTask();
+        assertEquals(null, task);
+    }
+
+    @Test
+    public void ifTimeIsNegativeReturnNull() {
         timeStartArea.setText("-1");
         timeEndArea.setText("-1");
         Task task = ct.createTask();
@@ -86,7 +95,23 @@ public class TaskFactoryTest {
     }
 
     @Test
-    public void IfTimeIsTooHighReturnNull() {
+    public void ifTimeIsZeroReturnTask() {
+        timeStartArea.setText("0");
+        timeEndArea.setText("0");
+        Task task = ct.createTask();
+        assertEquals("Test", task.getName());
+    }
+
+    @Test
+    public void ifTimeIsMidnightReturnTask() {
+        timeStartArea.setText("24");
+        timeEndArea.setText("24");
+        Task task = ct.createTask();
+        assertEquals("Test", task.getName());
+    }
+
+    @Test
+    public void ifTimeIsTooHighReturnNull() {
         timeStartArea.setText("25");
         timeEndArea.setText("25");
         Task task = ct.createTask();
@@ -94,11 +119,40 @@ public class TaskFactoryTest {
     }
 
     @Test
-    public void IfStartTimeIsHigherThanEndReturnNull() {
+    public void ifTimeIsSameReturnTask() {
+        timeStartArea.setText("12");
+        timeEndArea.setText("12");
+        Task task = ct.createTask();
+        assertEquals("Test", task.getName());
+    }
+
+    @Test
+    public void ifStartTimeIsHigherThanEndReturnNull() {
         timeStartArea.setText("13");
         timeEndArea.setText("12");
         Task task = ct.createTask();
         assertEquals(null, task);
+    }
+
+    @Test
+    public void startTimeInputNotInteger() {
+        timeStartArea.setText("hehe");
+        Task task = ct.createTask();
+        assertEquals(null, task);
+    }
+
+    @Test
+    public void endTimeInputNotInteger() {
+        timeEndArea.setText("hehe");
+        Task task = ct.createTask();
+        assertEquals(null, task);
+    }
+
+    @Test
+    public void setColorWorks() {
+        ct.setColor(Color.black);
+        Task task = ct.createTask();
+        assertEquals(Color.black, task.getColor());
     }
 
 }
