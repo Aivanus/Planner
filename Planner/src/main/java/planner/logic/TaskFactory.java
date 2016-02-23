@@ -17,6 +17,7 @@ public class TaskFactory {
     private JTextField nameArea;
     private JTextField timeStartArea;
     private JTextField timeEndArea;
+    private JTextField commentArea;
     private JComboBox dayBox;
     private Color color;
     //private JButton createButton;
@@ -37,13 +38,13 @@ public class TaskFactory {
      * @param dayBox combobox, joka sisältää päiviä
      * @param color color-olio
      */
-    public TaskFactory(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox, Color color) {
+    public TaskFactory(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JTextField commentArea, JComboBox dayBox, Color color) {
         this.nameArea = nameArea;
         this.timeStartArea = timeStartArea;
         this.timeEndArea = timeEndArea;
         this.dayBox = dayBox;
         this.color = color;
-        // this.createButton = createButton;
+        this.commentArea = commentArea;
     }
 
     public void setColor(Color color) {
@@ -61,6 +62,7 @@ public class TaskFactory {
         String name = nameArea.getText();
         String startTimeText = timeStartArea.getText();
         String endTimeText = timeEndArea.getText();
+        String comment = commentArea.getText();
         Day day = (Day) dayBox.getSelectedItem();
         Time start;
         Time end;
@@ -87,7 +89,7 @@ public class TaskFactory {
                 || end.getHours() > 24 || end.getHours() < 0 || end.getHours() < start.getHours()) {
             return null;
         }
-        Task task = new Task(name, start, end, day, color);
+        Task task = new Task(name, start, end, day, color, comment);
         return task;
     }
 

@@ -12,6 +12,7 @@ public class Task {
     private Time end;
     private Day day;
     private Color color;
+    private String comment;
 
     /**
      * Konstruktori, joka luo uuden tehtävän.
@@ -23,12 +24,13 @@ public class Task {
      * @param color minkä värinen taulukon solusta tulee, kun tehtävä lisätään
      * taulukkoon
      */
-    public Task(String name, Time start, Time end, Day day, Color color) {
+    public Task(String name, Time start, Time end, Day day, Color color, String comment) {
         this.name = name;
         this.start = start;
         this.end = end;
         this.day = day;
         this.color = color;
+        this.comment = comment;
     }
 
     public String getName() {
@@ -47,6 +49,14 @@ public class Task {
         return day;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
     /**
      * Metodi palauttaa tehtävälle merkatun päivän järjestysnumeron.
      *
@@ -63,10 +73,6 @@ public class Task {
      */
     public int getDuration() {
         return end.getHours() - start.getHours();
-    }
-
-    public Color getColor() {
-        return color;
     }
 
     @Override
