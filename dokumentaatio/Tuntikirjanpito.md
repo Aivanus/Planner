@@ -37,3 +37,7 @@
 
 22.2.2016
 * (1h) Ohjelmointi
+
+23.2.2016
+* (1h) Ohjelmointi
+* (1h) Testejen laatiminen ja dokumentaation parantaminen
