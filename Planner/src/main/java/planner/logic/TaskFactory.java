@@ -20,15 +20,7 @@ public class TaskFactory {
     private JTextField commentArea;
     private JComboBox dayBox;
     private Color color;
-    //private JButton createButton;
 
-//    public TaskFactory(JTextField nameArea, JTextField timeStartArea, JTextField timeEndArea, JComboBox dayBox) {
-//        this.nameArea = nameArea;
-//        this.timeStartArea = timeStartArea;
-//        this.timeEndArea = timeEndArea;
-//        this.dayBox = dayBox;
-//        // this.createButton = createButton;
-//    }
     /**
      * Konstruktori luo luokan seuraavien kenttien avulla.
      *
@@ -60,7 +52,7 @@ public class TaskFactory {
      */
     public Task createTask() {
 
-        String name = nameArea.getText();
+        String name = nameArea.getText().trim();
         String startTimeText = timeStartArea.getText();
         String endTimeText = timeEndArea.getText();
         String comment = commentArea.getText();
