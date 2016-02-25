@@ -380,7 +380,8 @@ public class PlannerGUI extends javax.swing.JFrame {
         chosenColor.setBackground(currentColor);
     }//GEN-LAST:event_colorChooserActionPerformed
     /**
-     * Metodi, joka käynnistyy, kun Print-nappia painetaan.
+     * Metodi, joka käynnistyy, kun Print-nappia painetaan. Avaa
+     * tulostusikkunan, ja esittää status-ikkunoita.
      *
      * @param evt
      */
@@ -399,7 +400,12 @@ public class PlannerGUI extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_printButtonActionPerformed
-
+    /**
+     * Metodi, joka käynnistyy, kun delete-nappia painetaan. Poistaa valitussa
+     * solussa olevan datan.
+     *
+     * @param evt
+     */
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
 
         int column = schedule.getSelectedColumn();
@@ -409,7 +415,13 @@ public class PlannerGUI extends javax.swing.JFrame {
         }
         schedule.setValueAt(null, row, column);
     }//GEN-LAST:event_deleteButtonActionPerformed
-
+    /**
+     * Metodi, joka käynnistyy, kun hiirellä klikataan schedule-taulukkoa. Jos
+     * klikataan kaksi kertaa, avaa ikkunan, jossa esitetään detaileja valitussa
+     * solussa olevasta datasta.
+     *
+     * @param evt
+     */
     private void scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scheduleMouseClicked
         if (evt.getClickCount() >= 2) {
 
@@ -430,7 +442,11 @@ public class PlannerGUI extends javax.swing.JFrame {
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_scheduleMouseClicked
-
+    /**
+     * Metodi, joka käynnistyy, kun Clear-nappia painetaan.
+     * Nollaa kentät.
+     * @param evt 
+     */
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         nameTextField.setText("New Task");
         timeStartTextField.setText("00");
@@ -441,7 +457,10 @@ public class PlannerGUI extends javax.swing.JFrame {
         chosenColor.setForeground(currentColor);
         chosenColor.setBackground(currentColor);
     }//GEN-LAST:event_clearButtonActionPerformed
-
+    /**
+     * Metodi, joka päivittää solujen datan.
+     * @param task Task-olio, joka asetetaan soluihin
+     */
     private void updateCell(Task task) {
         int time = task.getStartTime();
         int day = task.getDayNumber();
