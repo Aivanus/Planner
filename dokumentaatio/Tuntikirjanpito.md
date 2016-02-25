@@ -41,3 +41,8 @@
 23.2.2016
 * (1h) Ohjelmointi
 * (1h) Testejen laatiminen ja dokumentaation parantaminen
+
+25.2.2016
+* (0,5h) Koodin siistimenen
+* (0,5h) Javadocin laajentaminen
+* (1.5h) Muu dokumentaatio (mm. käyttöohjeet, rakennekuvaus yms.)
