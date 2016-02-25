@@ -14,13 +14,17 @@ Planner on viikon suunnitteluun tarkoitettu graafinen työkalu, joka on toteutett
 * **5.** Lisää uusi tapahtuma painamalla nappia "OK". Napin painamisen jälkeen tapahtuman pitäisi ilmestyä taulukkoon, jos on toimittu käyttöohjeiden mukaisesti.
 
 **Yksittäisen tapahtuman poistaminen**
+
 Jos satuit luomaan tapahtuman väärään paikkaan voit poistaa sen klikkaamalla tapahtuman solua taulukosta ja painamalla nappia "Delete".
 
 **Tapahtuman syötekenttien nollaaminen**
+
 Painamalla nappia "Clear", pudotuslaatikko, valittu väri ja kaikki tekstikentät palautuvat oletusarvoon. Ei vaikuta lukujärjestyksessä oleviin tapahtumiin!
 
 **Tapahtuman tietojen tarkastelu**
+
 Tuplaklikkaamalla tapahtumaa lukujärjestyksessä avautuu toinen ikkuna, jossa on tietoja valitsemastasi tapahtumasta.
 
 **Lukujärjestyksen tulostaminen**
+
 Painamalla nappia "Print", avautuu tulostusvalikko, josta voit konfiguroida tulostusta. Kun olet valmis tulostamaan, paina nappia "Print".
