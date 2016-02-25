@@ -30,7 +30,7 @@ public class TaskFactory {
 //        // this.createButton = createButton;
 //    }
     /**
-     * Konstruktori luo luokan seuraavien.
+     * Konstruktori luo luokan seuraavien kenttien avulla.
      *
      * @param nameArea tekstikenttä, johon on syötetty tehtävän nimi
      * @param timeStartArea tekstikenttä johon on syötetty alkamisaika

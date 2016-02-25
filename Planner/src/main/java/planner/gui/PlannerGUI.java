@@ -443,9 +443,9 @@ public class PlannerGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_scheduleMouseClicked
     /**
-     * Metodi, joka käynnistyy, kun Clear-nappia painetaan.
-     * Nollaa kentät.
-     * @param evt 
+     * Metodi, joka käynnistyy, kun Clear-nappia painetaan. Nollaa kentät.
+     *
+     * @param evt
      */
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         nameTextField.setText("New Task");
@@ -459,6 +459,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_clearButtonActionPerformed
     /**
      * Metodi, joka päivittää solujen datan.
+     *
      * @param task Task-olio, joka asetetaan soluihin
      */
     private void updateCell(Task task) {
