@@ -1,20 +1,17 @@
 package planner.gui;
 
 import java.awt.Color;
-import java.awt.Dialog;
-import java.awt.Frame;
 import java.awt.print.PrinterException;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import planner.logic.TaskFactory;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JColorChooser;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.Renderer;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableModel;
 import planner.domain.Day;
 import planner.domain.Task;
 
@@ -22,12 +19,13 @@ import planner.domain.Task;
  * Graafinen käyttöliittymä.
  */
 public class PlannerGUI extends javax.swing.JFrame {
-    
+
     private Color currentColor;
     private TaskFactory tf;
 
     /**
-     * Creates new form PlannerGUI
+     * PlannerGUI:n konstruktori, joka luo komponentit, uuden TaskFactoryn ja
+     * muuttaa JTable schedulen Default renderin minun toiseksi
      */
     public PlannerGUI() {
         initComponents();
@@ -69,7 +67,6 @@ public class PlannerGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Planner");
         setPreferredSize(new java.awt.Dimension(1400, 600));
-        setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -347,10 +344,18 @@ public class PlannerGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Meotdi, joka käynnistyy, kun OK-nappia painetaan. Luo uuden Task-olion,
+     * ja jos luominen onnistuu päivittää updateCell-metodin avulla taulukon
+     * schedule. Jos luominen ei onnistu, väärän syötteen vuoksi, ilmoittaa
+     * siitä käyttäjälle.
+     *
+     * @param evt
+     */
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         tf.setColor(currentColor);
         Task task = tf.createTask();
-        
+
         if (task != null) {
             updateCell(task);
         } else {
@@ -359,7 +364,14 @@ public class PlannerGUI extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_createButtonActionPerformed
-
+    /**
+     * Metodi, joka käynnistyy, kun painetaan Color-nappia. Avaa värivalikon,
+     * josta käyttäjä valitsee haluamansa värin, joka jää muistiin. Myös JLabel
+     * napin vierestä muuttaa väriä, jotta käyttäjä tietäisi mikä väri on
+     * valittu.
+     *
+     * @param evt
+     */
     private void colorChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorChooserActionPerformed
         JColorChooser tcc = new JColorChooser();
         tcc.setPreviewPanel(new JPanel());
@@ -367,7 +379,11 @@ public class PlannerGUI extends javax.swing.JFrame {
         chosenColor.setForeground(currentColor);
         chosenColor.setBackground(currentColor);
     }//GEN-LAST:event_colorChooserActionPerformed
-
+    /**
+     * Metodi, joka käynnistyy, kun Print-nappia painetaan.
+     *
+     * @param evt
+     */
     private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
         try {
             boolean complete = schedule.print();
@@ -385,7 +401,7 @@ public class PlannerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_printButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
+
         int column = schedule.getSelectedColumn();
         int row = schedule.getSelectedRow();
         if (column == 0) {
@@ -396,28 +412,23 @@ public class PlannerGUI extends javax.swing.JFrame {
 
     private void scheduleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_scheduleMouseClicked
         if (evt.getClickCount() >= 2) {
-            
+
             int c = schedule.getSelectedColumn();
             int r = schedule.getSelectedRow();
-            
+
             if (c == 0) {
                 return;
             }
-            
+
             Object o = schedule.getValueAt(r, c);
-            
+
             if (o == null) {
                 return;
             }
             Task task = (Task) o;
-            JOptionPane.showMessageDialog(new JFrame(), task.getName() + "\n" + task.getDay() + "\n" + task.getStartTime() + " - " + task.getEndTime() + "\n" + task.getComment(), "Task details",
+            JOptionPane.showMessageDialog(new JFrame(), task.getName() + "\n" + task.getDay() + "\n" + task.getComment(), "Task details",
                     JOptionPane.INFORMATION_MESSAGE);
         }
-//        if (o != null) {
-//            JOptionPane.showMessageDialog(new JFrame(), task.toString() + "\n hehe", "Task details",
-//                    JOptionPane.PLAIN_MESSAGE);
-//            System.out.println(schedule.getValueAt(r, c));
-//        }
     }//GEN-LAST:event_scheduleMouseClicked
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
@@ -430,11 +441,11 @@ public class PlannerGUI extends javax.swing.JFrame {
         chosenColor.setForeground(currentColor);
         chosenColor.setBackground(currentColor);
     }//GEN-LAST:event_clearButtonActionPerformed
-    
+
     private void updateCell(Task task) {
         int time = task.getStartTime();
         int day = task.getDayNumber();
-        
+
         for (int i = 0; i < task.getDuration(); i++) {
             schedule.setValueAt(task, time + i, day);
         }
