@@ -12,3 +12,5 @@ Ohjelman ideana on antaa graafinen käyttöliittymä yksinkertaisen lukujärjest
   [Tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
   
   [Käyttöohjeet](dokumentaatio/kayttoohjeet.md)
+  
+  [Testausdokumentaatio](Planner/dokumentaatio/Testausdokumentaatio.md)
