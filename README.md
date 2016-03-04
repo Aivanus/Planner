@@ -13,4 +13,4 @@ Ohjelman ideana on antaa graafinen käyttöliittymä yksinkertaisen lukujärjest
   
   [Käyttöohjeet](dokumentaatio/kayttoohjeet.md)
   
-  [Testausdokumentaatio](Planner/dokumentaatio/Testausdokumentaatio.md)
+  [Testausdokumentaatio](/dokumentaatio/Testausdokumentaatio.md)
