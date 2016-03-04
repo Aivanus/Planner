@@ -413,6 +413,9 @@ public class PlannerGUI extends javax.swing.JFrame {
         if (column == 0) {
             return;
         }
+        if (row == -1 || column == -1) {
+            return;
+        }
         schedule.setValueAt(null, row, column);
     }//GEN-LAST:event_deleteButtonActionPerformed
     /**
