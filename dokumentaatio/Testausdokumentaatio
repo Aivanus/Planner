@@ -1,0 +1,3 @@
+**Testausdokumentaatio**
+
+Ohjelmassani ei ole automaattista käyttöliittymätestausta, minkä vuoksi jouduin testaamaan käyttöliittymän aina käsin, jolloin joskus bugien löytäminen oli hyvin työlästä. Tämän olisi voinut korjata tekemällä jUnit testeja käyttöliittymälle. Myös luokalla ColorRenderer ei ole testeja, sillä en keksinyt miten sitä olisi järkevää testata, ja gui:sta näkee kuitenkin heti, jos kyseinen luokka ei toimi oikein. Olisi hyvä lisätä kaikkien ohjelmien komponenttien yhteistoimintaa testaavia testeja, mutta tällaisetkin vaatisi gui:n automatisoitua testausta. Kaikille muille luokille on luotu kattavat automatisoidut testit, mikä toisaalta helpotti myös käyttöliittymän testaamista.
