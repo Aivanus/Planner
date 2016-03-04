@@ -25,7 +25,7 @@ public class PlannerGUI extends javax.swing.JFrame {
 
     /**
      * PlannerGUI:n konstruktori, joka luo komponentit, uuden TaskFactoryn ja
-     * muuttaa JTable schedulen Default renderin minun toiseksi
+     * muuttaa JTable schedulen Default renderin muokatuksi versioksi
      */
     public PlannerGUI() {
         initComponents();
