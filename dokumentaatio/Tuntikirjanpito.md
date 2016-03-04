@@ -1,6 +1,6 @@
 19.1.2016
 
-* (3h) Tutustuminen GitHubiin ja aihemäärittely
+* (3h) Tutustuminen GitHubiin ja aihemÃ¤Ã¤rittely
 
 
 28.1.2016
@@ -43,6 +43,9 @@
 * (1h) Testejen laatiminen ja dokumentaation parantaminen
 
 25.2.2016
-* (0,5h) Koodin siistimenen
+* (0,5h) Koodin siistiminen
 * (0,5h) Javadocin laajentaminen
-* (1.5h) Muu dokumentaatio (mm. käyttöohjeet, rakennekuvaus yms.)
+* (1.5h) Muu dokumentaatio (mm. kÃ¤yttÃ¶ohjeet, rakennekuvaus yms.)
+ 
+4.3.2015
+* (1h) Kaiken tarkistaminen ja puutteiden korjaaminen
